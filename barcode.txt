@@ -1,0 +1,4 @@
+barcode	CTAAGGTAAC	bc1
+barcode	TAAGGAGAAC	bc2
+barcode	AAGAGGATTC	bc3
+barcode	TACCAAGATC	bc4
