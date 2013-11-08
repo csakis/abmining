@@ -275,9 +275,10 @@ cdr_file_name = sample_name + '.cdr3' #The file name that will contain the HCDR3
 cdr_dna_file_name = sample_name + '.dna.cdr3' #The file name that will contain the HCDR3 DNA sequences.
 
 # *** Here is the regular expression pattern. ***
-cdr3_pattern = r'TA[CT](TT[CT]|TA[TC]|CA[TC]|GT[AGCT])TG[TC][GA][AGCT]([ACGT]{3}){5,32}[AGCT]TGGG[GCT][GCT]' #CDR3 search pattern
+#cdr3_pattern = r'TA[CT](TT[CT]|TA[TC]|CA[TC]|GT[AGCT])TG[TC][GA][AGCT]([ACGT]{3}){5,32}[AGCT]TGGG[GCT][GCT]' #CDR3 search pattern
 
-#cdr3_pattern = r'(TT[TC]|TA[CT])(TT[CT]|TA[TC]|CA[TC]|GT[AGCT]|TGG)(TG[TC])(([GA][AGCT])|TC)[AGCT]([ACGT]{3}){5,32}TGGG[GCT][GCT]' #CDR3 search pattern
+cdr3_pattern = r'(TT[TC]|TA[CT])(TT[CT]|TA[TC]|CA[TC]|GT[AGCT]|TGG)(TG[TC])(([GA][AGCT])|TC)[AGCT]([ACGT]{3}){5,32}TGGG[GCT][GCT]'
+#improved CDR3 regex pattern using the Quake Dataset
 if not os.path.isfile(trim_fasta_file_name):
   sys.exit('Please check that you have the trimmed fasta file in the directory')
 stars()

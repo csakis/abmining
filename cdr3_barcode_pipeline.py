@@ -322,8 +322,9 @@ for barcode, seq_list in barcode_dict.items():
   cdr_dna_file_name = barcode + '_' + sample_name + '.dna.cdr3' #The file name that will contain the HCDR3 sequences.
 
   # *** Here is the regular expression pattern. ***
-  cdr3_pattern = r'TA[CT](TT[CT]|TA[TC]|CA[TC]|GT[AGCT])TG[TC][GA][AGCT]([ACGT]{3}){5,32}[AGCT]TGGG[GCT][GCT]' #CDR3 search pattern
-  # cdr3_pattern = r'(TT[TC]|TA[CT])(TT[CT]|TA[TC]|CA[TC]|GT[AGCT]|TGG)(TG[TC])(([GA][AGCT])|TC)[AGCT]([ACGT]{3}){5,32}TGGG[GCT][GCT]' #CDR3 search pattern
+  #cdr3_pattern = r'TA[CT](TT[CT]|TA[TC]|CA[TC]|GT[AGCT])TG[TC][GA][AGCT]([ACGT]{3}){5,32}[AGCT]TGGG[GCT][GCT]' #CDR3 search pattern
+  cdr3_pattern = r'(TT[TC]|TA[CT])(TT[CT]|TA[TC]|CA[TC]|GT[AGCT]|TGG)(TG[TC])(([GA][AGCT])|TC)[AGCT]([ACGT]{3}){5,32}TGGG[GCT][GCT]'
+  #improved CDR3 regular expression using the Quake dataset
   if not os.path.isfile(trim_fasta_file_name):
     sys.exit('Please check that you have the trimmed fasta file in the directory')
   print 'Now we are looking for CDR3 sequences in the %s sample' % barcode
