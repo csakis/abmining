@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e53af6dd-56b4-4cc8-ad2a-f674fbd37269" name="Default" comment="">
+    <list default="true" id="e53af6dd-56b4-4cc8-ad2a-f674fbd37269" name="Default" comment="An updated CDR3 regular expression pattern improved by using  the independent Quake data set .">
+      <change type="DELETED" beforePath="D:\AbMining\cdr3_search_serine.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdr3_barcode_pipeline.py" afterPath="$PROJECT_DIR$/cdr3_barcode_pipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdr3_pipeline.py" afterPath="$PROJECT_DIR$/cdr3_pipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cdr3_search.py" afterPath="$PROJECT_DIR$/cdr3_search.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AbMining.iws" />
@@ -47,9 +51,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/cdr3_barcode_pipeline.py" />
-        <option value="$PROJECT_DIR$/cdr3_pipeline.py" />
         <option value="$PROJECT_DIR$/cdr3_search.py" />
+        <option value="$PROJECT_DIR$/cdr3_pipeline.py" />
+        <option value="$PROJECT_DIR$/cdr3_barcode_pipeline.py" />
       </list>
     </option>
   </component>
@@ -85,6 +89,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -105,7 +110,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,31 +353,35 @@
       <created>1386703369573</created>
       <updated>1386703369573</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="An updated CDR3 regular expression pattern improved by using  the independent Quake data set .">
+      <created>1386703442926</created>
+      <updated>1386703442926</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="245" y="230" width="1469" height="921" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32898173" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32767624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2707889" sideWeight="0.6710183" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28784648" sideWeight="0.67232376" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -397,51 +405,37 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/VL_text_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cdr3_barcode_pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="6690">
-          <folding />
-        </state>
+        <state line="48" column="0" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="6690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VL_text_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cdr3_barcode_pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="41" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6690">
-          <folding />
-        </state>
+        <state line="334" column="41" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VL_text_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VL_text_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cdr3_barcode_pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="41" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.0" vertical-offset="5010" max-vertical-offset="6780">
-          <folding />
-        </state>
+        <state line="334" column="41" selection-start="12379" selection-end="12379" vertical-scroll-proportion="0.0" vertical-offset="5010" max-vertical-offset="6780" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cdr3_pipeline.py">
@@ -456,9 +450,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VL_text_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aa_table.csv">
@@ -469,26 +461,30 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VL_text_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cdr3_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="87" selection-start="337" selection-end="337" vertical-scroll-proportion="0.13944224" vertical-offset="0" max-vertical-offset="1545" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdr3_pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="280" column="52" selection-start="9969" selection-end="9969" vertical-scroll-proportion="-0.119521916" vertical-offset="4200" max-vertical-offset="6180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdr3_barcode_pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="5" selection-start="178" selection-end="178" vertical-scroll-proportion="0.24590164" vertical-offset="0" max-vertical-offset="6780">
+        <state line="62" column="0" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.7394958" vertical-offset="578" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VL_text_process.py">
+    <entry file="file://$PROJECT_DIR$/cdr3_barcode_pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+        <state line="324" column="8" selection-start="11696" selection-end="11696" vertical-scroll-proportion="0.65756303" vertical-offset="4547" max-vertical-offset="6765">
+          <folding>
+            <element signature="e#81#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cdr3_pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="277" column="0" selection-start="9654" selection-end="9654" vertical-scroll-proportion="0.31512606" vertical-offset="3915" max-vertical-offset="6180">
           <folding />
         </state>
       </provider>
