@@ -6,7 +6,7 @@ __email__ = 'csakis[at]lanl[dot]gov'
 """This scripts takes the fasta output of mothur and removes the identifiers, 
 reverse complements the DNA sequence and outputs the file with .rev extension.
 It also finds CDR3s based on the cdr3_pattern regular expression pattern and translates
-the found DNA seqeunces into peptide seqeunces and saves the list as .cdr file."""
+the found DNA sequences into peptide sequences and saves the list as .cdr file."""
 import sys
 import re
 from string import maketrans
@@ -15,7 +15,7 @@ def protein_translate(aa_dict, seq):
   cdr3 = '' #empty protein sequence
   codon_list = re.findall('...', seq) #separates the sequence by triplets
   for codon in codon_list:
-    cdr3 = cdr3 + aa_dict[codon] #use the triplet list to translat to aa
+    cdr3 = cdr3 + aa_dict[codon] #use the triplet list to translate to aa
   return cdr3
 
 
@@ -73,12 +73,12 @@ cdr_file_out = open(cdr_out, 'w')
 for DNA_seq in fasta_list: #Go through each line of the trimmed fasta file
   seq_count += 1
   if re.match('^[ACGTN]', DNA_seq): #check if the line contains seq ID or DNA seq
-    match = re.search(cdr3_pattern, reverse_complement(DNA_seq)) #check the reverse complement first
+    match = re.search(cdr3_pattern, reverse_complement(DNA_seq), re.IGNORECASE) #check the reverse complement first
     if match:
       cdr3_count += 1
       cdr_file_out.write(protein_translate(aa_dict, match.group())[2:-1] + '\n') #write the CDR3 output file
     else:
-      rev_match = re.search(cdr3_pattern, DNA_seq) #check if the seq contains a CDR3
+      rev_match = re.search(cdr3_pattern, DNA_seq, re.IGNORECASE) #check if the seq contains a CDR3
       if rev_match:
         cdr3_count += 1
         cdr_file_out.write(protein_translate(aa_dict, rev_match.group())[2:-1] + '\n') #write the CDR3 output file

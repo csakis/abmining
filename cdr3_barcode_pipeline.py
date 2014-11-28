@@ -257,9 +257,10 @@ print 'Now we trim the sequences using the desired quality settings.'
 print 'Depending on the settings, this could take a while... (10-20 minutes)'
 print 'Please be patient!'
 stars()
-good_reads = []
+good_reads = {}
 good_seq_count = 0
 for rec in SeqIO.parse(fastq_file, 'fastq'):
+  seq_name = rec.name
   seq_length = len(rec.seq) # length of the raw sequence
   DNA_seq = str(rec.seq) # the raw DNA sequence
   quality_list = rec.letter_annotations['phred_quality']  #raw quality list
@@ -295,25 +296,25 @@ for rec in SeqIO.parse(fastq_file, 'fastq'):
     good_seq_count += 1
     if (good_seq_count % 100000) == 0:
       print 'So far %d good sequences have been found.' % good_seq_count
-    good_reads.append(trimmed_seq)  # good_reads list contains all the quality sequences
+    good_reads[seq_name] = trimmed_seq  # good_reads list contains all the quality sequences
 
 #Searching for barcodes
 barcode_dict = {}  # the barcode dictionary will contain the barcode separated sequence_lists usign the barcode as key
 for barcode_seq, barcode_name in barcodes:
   barcode_dict[barcode_name] = []
 
-for cdr3_sequence in good_reads:
+for seq_name, cdr3_sequence in good_reads.items():
   barcode_found, cdr3_found, barcode_sample_name = barcode_search(cdr3_sequence, barcodes)
   if barcode_found:
-    barcode_dict[barcode_sample_name].append(
-      cdr3_found)  # add the found cdr3 sequence to the appropriate list in the dictionary
+    barcode_dict[barcode_sample_name].append([seq_name,
+      cdr3_found])  # add the found cdr3 sequence to the appropriate list in the dictionary
 # barcode library is done
 
 for barcode, seq_list in barcode_dict.items():
   trim_fasta_file_name = barcode + '_' + sample_name + '.trim.fasta'
   trim_fasta_file = open(trim_fasta_file_name, 'w')
-  for cdr3 in seq_list:
-    trim_fasta_file.write('%s\n' % cdr3)
+  for seq_name, cdr3 in seq_list:
+    trim_fasta_file.write('%s, %s\n' % (seq_name, cdr3))
   stars()
   print '*** Sample: %s ***' % barcode
   print 'The %s file has been created and contains %d trimmed DNA sequences' % (trim_fasta_file_name, len(seq_list))
@@ -334,27 +335,28 @@ for barcode, seq_list in barcode_dict.items():
   cdr_file_out = open(cdr_file_name, 'w')
   cdr_dna_file_out = open(cdr_dna_file_name, 'w')
   #CDR3 search loop
-  for DNA_seq in fasta_list: #Go through each line of the trimmed fasta file
+  for line in fasta_list: #Go through each line of the trimmed fasta file
+    seq_name = line.split(',')[0]
+    DNA_seq = line.split(',')[1]
     seq_count += 1
-    if re.match('^[ACGTN]', DNA_seq): #check if the line contains seq ID or DNA seq
-      match = re.search(cdr3_pattern, reverse_complement(DNA_seq)) #check the reverse complement first
-      if match:
+    match = re.search(cdr3_pattern, reverse_complement(DNA_seq)) #check the reverse complement first
+    if match:
+      cdr3_count += 1
+      cdr3_peptide = protein_translate(aa_dict, match.group())[2:-1]
+      cdr_file_out.write('%s, %s\n' % (seq_name, cdr3_peptide))  # write the CDR3 output file
+      cdr_dna_text = '%s, %s, %s\n' % (seq_name, cdr3_peptide, match.group())
+      cdr_dna_file_out.write(cdr_dna_text)  # write the CDR3 DNA output file
+    else:
+      rev_match = re.search(cdr3_pattern, DNA_seq)  # check if the seq contains a CDR3
+      if rev_match:
         cdr3_count += 1
-        cdr3_peptide = protein_translate(aa_dict, match.group())[2:-1]
-        cdr_file_out.write(cdr3_peptide + '\n')  # write the CDR3 output file
-        cdr_dna_text = '%s, %s\n' % (cdr3_peptide, match.group())
+        cdr3_peptide = protein_translate(aa_dict, rev_match.group())[2:-1]
+        cdr_file_out.write('%s, %s\n' % (seq_name, cdr3_peptide))  # write the CDR3 output file
+        cdr_dna_text = '%s, %s, %s\n' % (seq_name, cdr3_peptide, rev_match.group())
         cdr_dna_file_out.write(cdr_dna_text)  # write the CDR3 DNA output file
-      else:
-        rev_match = re.search(cdr3_pattern, DNA_seq)  # check if the seq contains a CDR3
-        if rev_match:
-          cdr3_count += 1
-          cdr3_peptide = protein_translate(aa_dict, rev_match.group())[2:-1]
-          cdr_file_out.write(cdr3_peptide + '\n')  # write the CDR3 output file
-          cdr_dna_text = '%s, %s\n' % (cdr3_peptide, rev_match.group())
-          cdr_dna_file_out.write(cdr_dna_text)  # write the CDR3 DNA output file
-      if (seq_count % 250000) == 0:
-        print 'So far %d sequences have been checked.' % seq_count
-        #End CDR3 search loop
+    if (seq_count % 250000) == 0:
+      print 'So far %d sequences have been checked.' % seq_count
+      #End CDR3 search loop
   print '\n%d CDR3s were found in the %s sample.' % (cdr3_count, barcode)
   fasta_file.close() #close trimmed fasta file
   cdr_file_out.close() #close cdr file
@@ -371,7 +373,8 @@ for barcode, seq_list in barcode_dict.items():
   cdr3_dict = {}
   for line in cdr_list: #read CDR3s line by line
     cdr3_count += 1
-    line = line[:-1] #remove \n character from lines
+    line = line.split(',')
+    line = line[1][:-1]  # remove \n character from lines
     if line in cdr3_dict: #check if the cdr3 is unique
       cdr3_dict[line] += 1
     else:
@@ -395,7 +398,8 @@ for barcode, seq_list in barcode_dict.items():
   cdr3_dict = {}
   for line in cdr_list: # read CDR3s line by line
     cdr3_count += 1
-    line = line[:-1] # remove \n character from lines
+    line = line.split(',')
+    line = line[2][:-1]
     if line in cdr3_dict: # check if the cdr3 is unique
       cdr3_dict[line] += 1
     else:

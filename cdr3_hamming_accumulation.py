@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import random
 from blist import blist
 from collections import defaultdict
 import sys

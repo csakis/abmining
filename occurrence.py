@@ -18,9 +18,9 @@ for line in file_in.readlines():
   value_list = line.split(',') #split the count values and the unique sequence
   cdr3_count = int(value_list[1])
   if cdr3_count in count_dict:
-count_dict[cdr3_count] += 1
-else:
-count_dict[cdr3_count] = 1
+    count_dict[cdr3_count] += 1
+  else:
+    count_dict[cdr3_count] = 1
 
 line_count += 1
 file_in.close()
